@@ -1,10 +1,5 @@
-<<<<<<< HEAD
-# Sources specified in failed when SPF or DKIM failed in forensic dmarc reports over the course of 2021
-# Domain MX setup through a third party provider with reject set on DKIM and SPF failures[.]
-=======
 # Sources specified when SPF or DKIM failed in forensic dmarc reports over the course of 2021
 # Domain MX setup through a third party provider with reject set on DKIM and SPF failures.
->>>>>>> 99c9924cdfb6cd749349a6e713e6e1f4f77515c2
 
 # some reverse lookups of the spoofing servers
 104[.]252[.]103[.]91[.]in-addr[.]arpa domain name pointer sstika[.]club[.]
