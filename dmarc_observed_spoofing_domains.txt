@@ -1,0 +1,49 @@
+# Sources specified in failed when SPF or DKIM failed in forensic dmarc reports over the course of 2021
+# Domain MX setup through a third party provider with reject set on DKIM and SPF failures.
+
+# some reverse lookups of the spoofing servers
+104.252.103.91.in-addr.arpa domain name pointer sstika.club.
+28.215.171.210.in-addr.arpa domain name pointer sv228.hyper.fitweb.net.
+4.40.26.117.in-addr.arpa domain name pointer 4.40.26.117.broad.qz.fj.dynamic.163data.com.cn.
+145.105.81.110.in-addr.arpa domain name pointer 145.105.81.110.broad.qz.fj.dynamic.163data.com.cn.
+2.172.97.37.in-addr.arpa domain name pointer 37-97-172-2.colo.transip.net.
+11.43.136.103.in-addr.arpa domain name pointer stevenson.botanyintroduction.com.
+34.169.168.35.in-addr.arpa domain name pointer ec2-35-168-169-34.compute-1.amazonaws.com.
+84.144.83.212.in-addr.arpa domain name pointer styles.yokeoutlet.com.
+34.169.168.35.in-addr.arpa domain name pointer ec2-35-168-169-34.compute-1.amazonaws.com.
+84.144.83.212.in-addr.arpa domain name pointer styles.yokeoutlet.com.
+164.152.231.67.in-addr.arpa domain name pointer mx0b-00273201.pphosted.com.
+149.182.108.78.in-addr.arpa domain name pointer switch-reading.magicugly.net.
+207.211.241.80.in-addr.arpa domain name pointer langagehero.mapsgood.net.
+124.149.39.89.in-addr.arpa domain name pointer users-surround.heldzealot.com.
+73.117.59.2.in-addr.arpa domain name pointer hungrier.philistold.net.
+70.4.164.193.in-addr.arpa domain name pointer createaza.com.
+24.139.83.212.in-addr.arpa domain name pointer bail-gophering.digitalmost.info.
+100.47.98.141.in-addr.arpa domain name pointer bornkey.net.
+22.0-24.25.220.66.in-addr.arpa domain name pointer burningmany.org.uk.
+
+# reverese lookups of the spoofing servers that look to possibly have misconfigurations intentionally
+--
+253.192-26.95.66.216.in-addr.arpa domain name pointer enews-gigaqu.tiedaviator.com.
+253.95.66.216.in-addr.arpa is an alias for 253.192-26.95.66.216.in-addr.arpa.
+--
+22.25.220.66.in-addr.arpa is an alias for 22.0-24.25.220.66.in-addr.arpa.
+22.0-24.25.220.66.in-addr.arpa domain name pointer burningmany.org.uk.
+
+
+# the explicit domain fields in the spoofed messages
+<domain>inamien.jp</domain>
+<domain>ae22hpxh2x61r6e--.colo.transip.net</domain>
+<domain>google.dkdevbpjdnnx.languagelevels.eu.com</domain>
+<domain>bntegdvxpduzbntegdvxpduz.dzoutside.co.com</domain>
+<domain>oeragegsqvooeragegsqvo.dzoutside.co.com</domain>
+<domain>bntegdvxpduzbntegdvxpduz.dzoutside.co.com</domain>
+<domain>oeragegsqvooeragegsqvo.dzoutside.co.com</domain>
+<domain>zendesk.rlfaitgjm.lys</domain>
+<domain>ndvrvvmgiaikcxb.org</domain>
+<domain>gnnrxprmspadnmp.org</domain>
+<domain>ndvrvvmgiaikcxb.org</domain>
+<domain>wgnnnftebisonax.org</domain>
+<domain>wgnnnftebisonax.org</domain>
+<domain>nabyrubdgnurqet.org</domain>
+<domain>vuyidsgzfgvygeq.org</domain>
