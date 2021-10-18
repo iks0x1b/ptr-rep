@@ -1,4 +1,4 @@
-# Sources specified in failed when SPF or DKIM failed in forensic dmarc reports over the course of 2021
+# Sources specified when SPF or DKIM failed in forensic dmarc reports over the course of 2021
 # Domain MX setup through a third party provider with reject set on DKIM and SPF failures.
 
 # some reverse lookups of the spoofing servers
