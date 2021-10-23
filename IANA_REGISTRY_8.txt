@@ -103,10 +103,10 @@
    099/8  ARIN                               2006-10  whois.arin.net     https://rdap.arin.net/registry   ALLOCATED
    100/8  ARIN                               2010-11  whois.arin.net     https://rdap.arin.net/registry   ALLOCATED
    101/8  APNIC                              2010-08  whois.apnic.net    https://rdap.apnic.net/          ALLOCATED
-   102/8  AFRINIC                            2011-02 whois.afrinic.net   https://rdap.afrinic.net/rdap/   ALLOCATED
+   102/8  AFRINIC                            2011-02  whois.afrinic.net  https://rdap.afrinic.net/rdap/   ALLOCATED
    103/8  APNIC                              2011-02  whois.apnic.net    https://rdap.apnic.net/          ALLOCATED
    104/8  ARIN                               2011-02  whois.arin.net     https://rdap.arin.net/registry   ALLOCATED
-   105/8  AFRINIC                            2010-11 whois.afrinic.net   https://rdap.afrinic.net/rdap/   ALLOCATED
+   105/8  AFRINIC                            2010-11  whois.afrinic.net  https://rdap.afrinic.net/rdap/   ALLOCATED
    106/8  APNIC                              2011-01  whois.apnic.net    https://rdap.apnic.net/          ALLOCATED
    107/8  ARIN                               2010-02  whois.arin.net     https://rdap.arin.net/registry   ALLOCATED
    108/8  ARIN                               2008-12  whois.arin.net     https://rdap.arin.net/registry   ALLOCATED
