@@ -121,11 +121,11 @@ def main():
         for lines in fileptr:
             line = str(lines)
             if cidrmetachar in line:
-                itsbroken = ("error(cidr logic not yet written) on entry", line)
+                itsbroken = ("error(cidr logic not yet written) on entry" + line)
                 with open(ohno, 'a+') as the_table:
                     the_table.write(itsbroken)
             elif line[:1].isalpha():
-                itsbroken = ("error(alpha_char) on entry: ", line)
+                itsbroken = ("error(alpha_char) on entry: " + line)
                 with open(ohno, 'a+') as the_table:
                     the_table.write(itsbroken)
             elif not reserved_in_RFC5735(line):
@@ -134,11 +134,11 @@ def main():
                 with open(outfile, 'a+') as f:
                     json.dump(json_reply, f, separators=(',', ':'), indent=4)
             elif reserved_in_RFC5735(line):
-                itsbroken = ("error(reserved in RFC5735) on entry: ", line)
+                itsbroken = ("error(reserved in RFC5735) on entry: " + line)
                 with open(ohno, 'a+') as the_table:
                     the_table.write(itsbroken)
             else:
-                itsbroken = ("error(unknown) on entry: ", line)
+                itsbroken = ("error(unknown) on entry: " + line)
                 with open(ohno, 'a+') as the_table:
                     the_table.write(itsbroken)
 
