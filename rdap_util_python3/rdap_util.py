@@ -12,7 +12,8 @@ def rdapify_32(inputaddress: str) -> dict:
     """
     non-recursive rdap lookup for a given ip address
     """
-    addr = IPWhois(inputaddress.strip())
+    print("SENDING RDAP QUERY FOR " + inputaddress)
+    addr = IPWhois(str(inputaddress).strip())
     results = addr.lookup_rdap(depth=1)
     return results
 
@@ -127,35 +128,43 @@ def main():
     """
     is main function
     does the main thing
+    is a cli script if not being referenced by another module
     """
-    outfile = "json_out_last.txt"
-    ohno = "items_not_queried.txt"
-    listfile = sys.argv[1]
-    cidrmetachar = "/"
-    with open(listfile, "r", encoding="UTF-8") as fileptr:
-        for lines in fileptr:
-            line = str(lines)
-            if cidrmetachar in line:
-                itsbroken = "error(cidr logic not yet written) on entry" + line
-                with open(ohno, "a+", encoding="UTF-8") as the_table:
-                    the_table.write(itsbroken)
-            elif line[:1].isalpha():
-                itsbroken = "error(alpha_char) on entry: " + line
-                with open(ohno, "a+", encoding="UTF-8") as the_table:
-                    the_table.write(itsbroken)
-            elif not reserved_in_rfc5735(line):
-                reply = rdapify_32(line)
-                json_reply = json.dumps(reply, indent=4)
-                with open(outfile, "a+", encoding="UTF-8") as outfile:
-                    json.dump(json_reply, outfile, separators=(",", ":"), indent=4)
-            elif reserved_in_rfc5735(line):
-                itsbroken = "error(reserved in rfc5735) on entry: " + line
-                with open(ohno, "a+", encoding="UTF-8") as the_table:
-                    the_table.write(itsbroken)
-            else:
-                itsbroken = "error(unknown) on entry: " + line
-                with open(ohno, "a+", encoding="UTF-8") as the_table:
-                    the_table.write(itsbroken)
+    if len(sys.argv) > 1:
+        listfile = sys.argv[1]
+        outfile = "./json_out_last.txt"
+        query_cache = {}
+        invalid_list = []
+        out_cache = {}
+        valid_ctr = 0
+        sanitized_line = ""
+
+        # Validate the input /32 ip addresses and cache only the valid ones
+        with open(listfile, "r", encoding="UTF-8") as inputfile:
+            for line in inputfile:
+                sanitized_line = str(line).strip()
+                if reserved_in_rfc5735(inputaddress=sanitized_line):
+                    invalid_list.append(sanitized_line)
+                    print(
+                        "SOMETHING WEIRD IF THIS LIST IS SUPPOSED TO BE ONLY PUBLIC ADDRESSES: "
+                        + sanitized_line
+                    )
+
+                else:
+                    query_cache[valid_ctr] = sanitized_line
+                    valid_ctr += 1
+
+        # Print to terminal what is about to be run and what was invalid
+        print("WILL_QUERY: ", json.dumps(query_cache, indent=4))
+        print("INVALID: ", invalid_list)
+
+        # Nest the dictionary of results in a new dictionary
+        for value in query_cache.values():
+            out_cache[value] = rdapify_32(value)
+
+        # Write the data set to a file
+        with open(outfile, "w", encoding="UTF-8") as outputfile:
+            outputfile.write(json.dumps(out_cache, indent=2))
 
 
 if __name__ == "__main__":
