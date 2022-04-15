@@ -143,7 +143,11 @@ def main():
         with open(listfile, "r", encoding="UTF-8") as inputfile:
             for line in inputfile:
                 sanitized_line = str(line).strip()
-                if reserved_in_rfc5735(inputaddress=sanitized_line):
+                if (
+                    reserved_in_rfc5735(inputaddress=sanitized_line)
+                    or any(c.isalpha() for c in sanitized_line)
+                    or "/" in sanitized_line
+                ):
                     invalid_list.append(sanitized_line)
                     print(
                         "SOMETHING WEIRD IF THIS LIST IS SUPPOSED TO BE ONLY PUBLIC ADDRESSES: "
